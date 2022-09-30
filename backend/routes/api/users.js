@@ -6,7 +6,6 @@ var auth = require("../auth");
 const { sendEvent } = require("../../lib/event");
 
 router.get("/user", auth.required, function(req, res, next) {
-  console.log(req);
   User.findById(req.payload.id)
     .then(function(user) {
       if (!user) {

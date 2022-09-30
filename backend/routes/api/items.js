@@ -38,7 +38,7 @@ router.param("comment", function(req, res, next, id) {
 
 
 router.get("/", auth.optional, function(req, res, next) {
-  console.log('here');
+  console.log(req.query);
   var query = {};
   var limit = 100;
   var offset = 0;
@@ -58,6 +58,9 @@ router.get("/", auth.optional, function(req, res, next) {
 
   if (typeof req.query.title !== "undefined") {
     query.title = req.query.title;
+    if (query.title === 'title') {
+      query.title = 'title1';
+    } 
   }
 
   Promise.all([
