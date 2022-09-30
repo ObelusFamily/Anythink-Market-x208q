@@ -12,7 +12,7 @@ const Banner = (props) => {
     } else {
       props.search('');
     }
-    
+
   }
 
   return (
