@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import logo from "../../imgs/logo.png";
 
 const Banner = (props) => {
-
-  let [val, setVal] = useState('');
+  let [val, setVal] = useState("");
 
   let changeHandler = (e) => {
     setVal(e.target.value);
     if (e.target.value.length >= 3) {
       props.search(e.target.value);
     } else {
-      props.search('');
+      props.search("");
     }
-
-  }
+  };
 
   return (
     <div className="banner text-white">

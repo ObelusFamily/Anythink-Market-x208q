@@ -47,13 +47,8 @@ class Home extends React.Component {
 
   reloadItems = async (title) => {
     const itemsPromise = agent.Items.byTitle(title);
-    this.props.onFilter(
-      'all',
-      itemsPromise,
-      Promise.all([null, itemsPromise])
-    )
-
-  }
+    this.props.onFilter("all", itemsPromise, Promise.all([null, itemsPromise]));
+  };
 
   render() {
     return (
