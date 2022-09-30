@@ -8,6 +8,7 @@ import {
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER,
+  ITEM_FILTERED,
 } from "../../constants/actionTypes";
 
 const Promise = global.Promise;
@@ -24,6 +25,8 @@ const mapDispatchToProps = (dispatch) => ({
   onLoad: (tab, pager, payload) =>
     dispatch({ type: HOME_PAGE_LOADED, tab, pager, payload }),
   onUnload: () => dispatch({ type: HOME_PAGE_UNLOADED }),
+  onFilter: (tab, pager, payload) =>
+    dispatch({ type: ITEM_FILTERED, tab, pager, payload }),
 });
 
 class Home extends React.Component {
@@ -42,10 +45,15 @@ class Home extends React.Component {
     this.props.onUnload();
   }
 
+  reloadItems = async (title) => {
+    const itemsPromise = agent.Items.byTitle(title);
+    this.props.onFilter("all", itemsPromise, Promise.all([null, itemsPromise]));
+  };
+
   render() {
     return (
       <div className="home-page">
-        <Banner />
+        <Banner search={this.reloadItems} />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />
