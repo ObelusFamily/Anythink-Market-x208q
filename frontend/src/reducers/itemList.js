@@ -10,6 +10,7 @@ import {
   PROFILE_PAGE_UNLOADED,
   PROFILE_FAVORITES_PAGE_LOADED,
   PROFILE_FAVORITES_PAGE_UNLOADED,
+  ITEM_FILTERED,
 } from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {
@@ -29,6 +30,12 @@ const reducer = (state = {}, action) => {
           return item;
         }),
       };
+    case ITEM_FILTERED:
+      return {
+        ...state,
+        items: action.payload[1].items,
+        itemsCount: action.payload[1].itemsCount,
+      }
     case SET_PAGE:
       return {
         ...state,

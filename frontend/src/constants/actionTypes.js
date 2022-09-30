@@ -1,4 +1,5 @@
 export const APP_LOAD = "APP_LOAD";
+export const ITEM_FILTERED = "ITEM_FILTERED";
 export const REDIRECT = "REDIRECT";
 export const ITEM_SUBMITTED = "ITEM_SUBMITTED";
 export const SETTINGS_SAVED = "SETTINGS_SAVED";
