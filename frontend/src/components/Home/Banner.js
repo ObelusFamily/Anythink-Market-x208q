@@ -21,14 +21,13 @@ const Banner = (props) => {
               get
             </span>
           </span>
-          {open && (
-            <input
+          <input
               id="search-box"
               value={props.searchVal}
               onChange={props.stateSearch}
               placeholder="What is it that you truly desire?"
-            ></input>
-          )}
+              style={{display: open ? 'inline-block' : 'none'}}
+          ></input>
           <span> the cool stuff.</span>
         </div>
       </div>
