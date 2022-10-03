@@ -9,7 +9,7 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">
+          <span>
             A place to{" "}
             <span
               onClick={() => {
@@ -17,7 +17,7 @@ const Banner = (props) => {
                 setOpen(!open);
               }}
               className="getter"
-              id="#get-part"
+              id="get-part"
             >
               get
             </span>
