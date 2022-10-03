@@ -15,7 +15,6 @@ import {
 const Promise = global.Promise;
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     ...state.home,
     appName: state.common.appName,

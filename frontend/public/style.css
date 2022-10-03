@@ -28,6 +28,9 @@ body {
   background-image: url("sunray.jpeg");
   background-size: cover;
 }
+.getter {
+  cursor: pointer;
+}
 .text-white {
   color: white;
 }
