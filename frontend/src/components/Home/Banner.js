@@ -13,6 +13,7 @@ const Banner = (props) => {
             A place to{" "}
             <span
               onClick={() => {
+                console.log("clicked");
                 setOpen(!open);
               }}
               className="getter"
@@ -22,11 +23,14 @@ const Banner = (props) => {
             </span>
           </span>
           <input
-              id="search-box"
-              value={props.searchVal}
-              onChange={props.stateSearch}
-              placeholder="What is it that you truly desire?"
-              style={{display: open ? 'inline-block' : 'none'}}
+            id="search-box"
+            value={props.searchVal}
+            onChange={props.stateSearch}
+            placeholder="What is it that you truly desire?"
+            style={{
+              display: open ? "inline-block" : "none",
+              marginLeft: "5px",
+            }}
           ></input>
           <span> the cool stuff.</span>
         </div>
