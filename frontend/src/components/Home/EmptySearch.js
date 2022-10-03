@@ -2,7 +2,6 @@ import React from "react";
 
 const EmptySearch = (props) => {
 
-    console.log(props);
     return (
         <div className="banner text-white empty-search">
             <div className="text-holder">
