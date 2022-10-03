@@ -21,7 +21,7 @@ services:
   anythink-frontend-react:
     build: ./frontend
     container_name: anythink-frontend-react
-    command: sh -c "cd frontend && yarn install && yarn start"
+    command: sh -c "cd frontend && yarn install && yarn format && yarn lint && yarn start"
     environment:
       - NODE_ENV=development
       - PORT=3001

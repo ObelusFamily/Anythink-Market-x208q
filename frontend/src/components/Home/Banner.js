@@ -10,7 +10,16 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span id="get-part">
-            A place to <span onClick={() => {setOpen(!open)}} className="getter">get</span>
+            A place to{" "}
+            <span
+              onClick={() => {
+                setOpen(!open);
+              }}
+              className="getter"
+              id="#get-part"
+            >
+              get
+            </span>
           </span>
           {open && (
             <input
