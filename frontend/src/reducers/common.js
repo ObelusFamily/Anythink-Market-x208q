@@ -15,6 +15,7 @@ import {
   SETTINGS_PAGE_UNLOADED,
   LOGIN_PAGE_UNLOADED,
   REGISTER_PAGE_UNLOADED,
+  SET_SEARCH,
 } from "../constants/actionTypes";
 
 const defaultState = {
@@ -63,6 +64,8 @@ const reducer = (state = defaultState, action) => {
     case DELETE_ITEM:
       return { ...state, redirectTo: "/" };
     case ITEM_PAGE_UNLOADED:
+    case SET_SEARCH:
+      return {...state, searchVal: action.payload};
     case EDITOR_PAGE_UNLOADED:
     case HOME_PAGE_UNLOADED:
     case PROFILE_PAGE_UNLOADED:

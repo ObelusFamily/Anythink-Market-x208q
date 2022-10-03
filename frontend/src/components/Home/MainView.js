@@ -3,6 +3,7 @@ import React from "react";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import { CHANGE_TAB } from "../../constants/actionTypes";
+import EmptySearch from "./EmptySearch";
 
 const YourFeedTab = (props) => {
   if (props.token) {
@@ -62,6 +63,7 @@ const mapStateToProps = (state) => ({
   ...state.itemList,
   tags: state.home.tags,
   token: state.common.token,
+  search: state.common.searchVal,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -69,11 +71,18 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({ type: CHANGE_TAB, tab, pager, payload }),
 });
 
+
+
 const MainView = (props) => {
+
+  if (props.search && props.search.length >= 3 && props.itemsCount === 0) {
+    return <EmptySearch searchTerm={props.search} />
+  }
   return (
     <div>
       <div className="feed-toggle">
         <ul className="nav nav-tabs">
+
           <YourFeedTab
             token={props.token}
             tab={props.tab}
@@ -92,6 +101,8 @@ const MainView = (props) => {
         loading={props.loading}
         itemsCount={props.itemsCount}
         currentPage={props.currentPage}
+        searched={props.search?.length >= 3 ? true : false}
+        searchTerm={props.search}
       />
     </div>
   );

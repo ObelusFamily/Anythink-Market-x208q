@@ -31,6 +31,19 @@ body {
 .text-white {
   color: white;
 }
+.text-bold {
+  font-weight: 600;
+}
+.text-holder {
+  text-align: center;
+  padding-top: 60px;
+}
+.empty-search {
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 50%;
+  min-width: 300px;
+  height: 150px;
+}
 .row-eq-height {
   display: -webkit-box;
   display: -webkit-flex;
