@@ -9,7 +9,7 @@ const ItemList = (props) => {
   }
 
   if (props.items.length === 0 && props.searched) {
-    return <EmptySearch searchTerm={props.searchTerm} />
+    return <EmptySearch searchTerm={props.searchTerm} />;
   }
 
   if (props.items.length === 0) {

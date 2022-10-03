@@ -71,18 +71,14 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({ type: CHANGE_TAB, tab, pager, payload }),
 });
 
-
-
 const MainView = (props) => {
-
   if (props.search && props.search.length >= 3 && props.itemsCount === 0) {
-    return <EmptySearch searchTerm={props.search} />
+    return <EmptySearch searchTerm={props.search} />;
   }
   return (
     <div>
       <div className="feed-toggle">
         <ul className="nav nav-tabs">
-
           <YourFeedTab
             token={props.token}
             tab={props.tab}

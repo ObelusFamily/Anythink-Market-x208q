@@ -65,7 +65,7 @@ const reducer = (state = defaultState, action) => {
       return { ...state, redirectTo: "/" };
     case ITEM_PAGE_UNLOADED:
     case SET_SEARCH:
-      return {...state, searchVal: action.payload};
+      return { ...state, searchVal: action.payload };
     case EDITOR_PAGE_UNLOADED:
     case HOME_PAGE_UNLOADED:
     case PROFILE_PAGE_UNLOADED:
