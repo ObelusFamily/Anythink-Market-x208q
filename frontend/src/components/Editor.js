@@ -49,6 +49,7 @@ class Editor extends React.Component {
 
     this.submitForm = (ev) => {
       ev.preventDefault();
+
       const item = {
         title: this.props.title,
         description: this.props.description,
@@ -58,7 +59,7 @@ class Editor extends React.Component {
 
       const slug = { slug: this.props.itemSlug };
       const promise = this.props.itemSlug
-        ? agent.Items.update(Object.assign(item, slug))
+        ? agent.Items.update({ ...item, ...slug })
         : agent.Items.create(item);
 
       this.props.onSubmit(promise);

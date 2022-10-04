@@ -6,6 +6,10 @@ var User = mongoose.model("User");
 var auth = require("../auth");
 const { sendEvent } = require("../../lib/event");
 
+function checkURL(url) {
+  return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
+
 // Preload item objects on routes with ':item'
 router.param("item", function(req, res, next, slug) {
   Item.findOne({ slug: slug })
@@ -144,7 +148,16 @@ router.post("/", auth.required, function(req, res, next) {
         return res.sendStatus(401);
       }
 
-      var item = new Item(req.body.item);
+      let itemContent = {...req.body.item};
+
+      if (typeof itemContent.image === "undefined" || typeof itemContent.image === "" || !checkURL(itemContent.image)) {
+        itemContent.image  = '../placeholder.png';
+      }
+
+      var item = new Item(itemContent);
+
+
+
 
       item.seller = user;
 
@@ -182,20 +195,25 @@ router.put("/:item", auth.required, function(req, res, next) {
         req.item.description = req.body.item.description;
       }
 
-      if (typeof req.body.item.image !== "undefined") {
+      if (typeof req.body.item.image !== "undefined" && checkURL(req.body.item.image)) {
         req.item.image = req.body.item.image;
+      } else if (typeof req.body.item.image === "undefined" || !checkURL(req.body.item.image)) {
+        req.item.image = "../placeholder.png"
       }
 
       if (typeof req.body.item.tagList !== "undefined") {
         req.item.tagList = req.body.item.tagList;
       }
-
+      
       req.item
-        .save()
+        .save({
+          validateModifiedOnly: true,
+        })
         .then(function(item) {
+          console.log(item.toJSONFor(user));
           return res.json({ item: item.toJSONFor(user) });
         })
-        .catch(next);
+        .catch((e) => { console.log(e); next})
     } else {
       return res.sendStatus(403);
     }
