@@ -59,3 +59,10 @@ body {
 .user-info {
   min-width: 800px;
 }
+
+@media screen and (max-width: 1024px) {
+  li.nav-item {
+    width: 100%;
+  }
+}
+
