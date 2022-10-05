@@ -64,6 +64,11 @@ body {
   li.nav-item {
     width: 100%;
   }
+  .user-info {
+    min-width: 0px;
+    width: auto;
+    max-width: 100%;
+  }
 }
 .banner-img {
   max-width: 100%;
