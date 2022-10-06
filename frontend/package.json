@@ -73,5 +73,10 @@
   },
   "resolutions": {
     "autoprefixer": "10.4.5"
+  },
+  "jest": {
+    "transform": {
+       "^.+\\.(js|jsx)$": "babel-jest"
+    }
   }
 }
