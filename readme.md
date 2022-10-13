@@ -14,4 +14,4 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 3. Run `docker-compose up`. 
 
 
-## bug with Testing software, trying a resubmit, lets see if the jest is fixed after discord was updated on what to do.
+## bug with Testing software, trying a resubmit, lets see if the jest is fixed after discord was updated on what to do. Bug was submitted, lets see if they fixed the github test for this
